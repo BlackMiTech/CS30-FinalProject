@@ -15,7 +15,7 @@ class Sprite:
         self.green = 255
         self.blue = 255
         self.color = (self.red, self.green, self.blue)
-        self.bcolor = (0, 0, 0)
+        self.bcolor = (0, 0, 255)
         self.rcolor = (255, 0, 0)
         self.sprite.fill(self.color)
         self.x = x

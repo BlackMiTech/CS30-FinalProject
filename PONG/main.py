@@ -1,5 +1,5 @@
 """
-title: Gluttonous snake
+title: PONG
 Author: Zhihong Liang
 """
 

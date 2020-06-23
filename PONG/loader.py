@@ -2,7 +2,7 @@
 title: Loader of variables
 '''
 
-TITLE = "Gluttonous snake"
+TITLE = "PONG 2.0"
 FPS = 30
 WIDTH = 800
 HEIGHT = 600
