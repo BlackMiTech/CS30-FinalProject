@@ -2,7 +2,7 @@
 title: the platform player controls
 '''
 from sprite import Sprite
-from pygame import K_a, K_d, K_LEFT, K_RIGHT
+from pygame import K_a, K_d, K_LEFT, K_RIGHT, K_SPACE
 
 class Player1(Sprite):
 
@@ -12,7 +12,9 @@ class Player1(Sprite):
         self.setPOS(50, self.window.getHeight()/2 - self.height/2)
         self.sprite.fill(self.rcolor)
         self.spd = 10
+        self.con = False
 
+    # --- modifier method --- #
     def move(self, keys):
         if keys[K_a] == 1:
             self.y -= self.spd
@@ -30,6 +32,16 @@ class Player1(Sprite):
             self.y = 0
 
         self.pos = (self.x, self.y)
+
+    def conti(self, keys):
+        if keys[K_SPACE] == 1:
+            self.con = True
+        else:
+            pass
+
+    # --- getter modifier --- #
+    def getcon(self):
+        return self.con
 
 class Player2(Sprite):
 
