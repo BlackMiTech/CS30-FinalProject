@@ -11,6 +11,7 @@ class Snake(Sprite):
         self.setDimensions(50, 50)
         self.setPOS(self.window.getWidth()/2 - self.width/2, self.window.getHeight()/2 - self.height/2)
         self.spd = 10
+        self.ate = False
 
     def move(self, keys):
         if keys[K_d] == 1:
@@ -34,6 +35,14 @@ class Snake(Sprite):
 
         self.pos = (self.x, self.y)
 
+    def getSpriteCollision(self, sprite):
+        if sprite.getX() <= self.x + Window.getWidth() <= sprite.getX() + sprite.getWidth() + Window.getWidth() and sprite.getY() <= self.y + Window.getHeight() <= sprite.getY() + sprite.getHeight() + Window.getHeight():
+            self.ate = True
+        else:
+            self.ate = False
+
+    def getco(self):
+        return self.ate
 
 if __name__ == "__main__":
     from pygame import init
