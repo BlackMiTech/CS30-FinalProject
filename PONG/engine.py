@@ -63,12 +63,7 @@ class Engine:
             self.window.getEvents()
 
             # --- PROCESSING --- #
-            self.player1.move(self.window.getKeyPressed())
             self.player1.conti(self.window.getKeyPressed())
-            self.player2.move(self.window.getKeyPressed())
-            self.ball.move()
-            self.ball.collision1(self.player1)
-            self.ball.collision2(self.player2)
             self.scorep1.setPOS(0, 30)
             self.scorep2.setPOS(600, 30)
             self.intro.setPOS(150, 100)
