@@ -33,6 +33,7 @@ class Engine:
         self.p1oint8 = Text("8", self.window)
         self.p1oint9 = Text("9", self.window)
         self.p1oint10 = Text("10", self.window)
+        self.p1won = False
 
         self.p2oint0 = Text("0", self.window)
         self.p2oint1 = Text("1", self.window)
@@ -45,7 +46,9 @@ class Engine:
         self.p2oint8 = Text("8", self.window)
         self.p2oint9 = Text("9", self.window)
         self.p2oint10 = Text("10", self.window)
-
+        self.p2won = False
+        self.p1wont = Text("Player 1 won", self.window)
+        self.p2wont = Text("Player 2 won", self.window)
         self.running = True
 
     def conti(self, keys):
@@ -96,6 +99,7 @@ class Engine:
                 self.ball.collision2(self.player2)
                 self.scorep1.setPOS(0, 30)
                 self.scorep2.setPOS(600, 30)
+                # player 1 score
                 if self.ball.getp1s() == 0:
                     self.p1oint0.setPOS(160, 30)
                     self.p1oint1.setPOS(-100, -100)
@@ -228,7 +232,10 @@ class Engine:
                     self.p1oint8.setPOS(-100, -100)
                     self.p1oint9.setPOS(-100, -100)
                     self.p1oint10.setPOS(160, 30)
+                    self.p1wont.setPOS(350, 280)
+                    self.p1won = True
 
+                # player 2 score
                 if self.ball.getp2s() == 0:
                     self.p2oint0.setPOS(760, 30)
                     self.p2oint1.setPOS(-100, -100)
@@ -361,6 +368,9 @@ class Engine:
                     self.p2oint8.setPOS(-100, -100)
                     self.p2oint9.setPOS(-100, -100)
                     self.p2oint10.setPOS(760, 30)
+                    self.p2wont.setPOS(350, 280)
+                    self.p2won = True
+
 
                 # --- OUTPUTS --- #
                 self.window.clearScreen()
@@ -394,6 +404,14 @@ class Engine:
                 self.window.blitSprite(self.p2oint8)
                 self.window.blitSprite(self.p2oint9)
                 self.window.blitSprite(self.p2oint10)
+                if self.p1won == True:
+                    self.window.clearScreen()
+                    self.window.blitSprite(self.p1wont)
+
+                elif self.p2won == True:
+                    self.window.clearScreen()
+                    self.window.blitSprite(self.p2wont)
+
                 self.window.updateScreen()
 
 
