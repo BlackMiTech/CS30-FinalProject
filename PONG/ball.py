@@ -18,19 +18,26 @@ class Ball(Sprite):
         self.sprite.fill(self.color)
         self.spdx = 10
         self.spdy = 10
+        self.p1score = 0
+        self.p2score = 0
 
+    # --- modifier method --- #
     def move(self):
         self.x += self.spdx
         self.y += self.spdy
 
         # hit right bounder out of bounce player1 win
-        if self.x > self.window.getWidth() - self.sprite.get_rect().width:
-            self.x = self.window.getWidth() - self.sprite.get_rect().width
+        if self.x > self.window.getWidth():
+            self.p1score += 1
+            self.x = self.window.getWidth()/2 - self.width/2
+            self.y = self.window.getHeight()/2 - self.height/2
             self.spdx = (self.spdx) * -1
 
         # hit left bounder out of bounce player 2 win
-        elif self.x < 0:
-            self.x = 0
+        elif self.x + self.sprite.get_rect().width < 0:
+            self.p2score += 1
+            self.x = self.window.getWidth()/2 - self.width/2
+            self.y = self.window.getHeight()/2 - self.height/2
             self.spdx = (self.spdx) * -1
 
         # hit upper bounce bounce back
@@ -62,6 +69,13 @@ class Ball(Sprite):
             pass
 
         self.pos = (self.x, self.y)
+
+    # --- getter method --- #
+    def getp1s(self):
+        return self.p1score
+
+    def getp2s(self):
+        return  self.p2score
 
 if __name__ == "__main__":
     from pygame import init
