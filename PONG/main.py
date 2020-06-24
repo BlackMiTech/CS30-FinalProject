@@ -1,6 +1,6 @@
 """
 title: PONG
-Author: Zhihong Liang
+Author: Zhihong Liang & Jimmy Wang
 """
 
 from pygame import init
